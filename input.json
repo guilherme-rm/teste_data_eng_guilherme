@@ -1,0 +1,18 @@
+{
+    "queries":[
+        {
+            "date" : "2024-01-01T00:00:00",
+            "names" : ["wind_speed", "power", "ambient_temperature"]
+        },
+        {
+            "date" : "2024-01-02T00:00:00",
+            "names" : ["wind_speed", "ambient_temperature"]
+        },
+
+        {
+            "date" : "2024-01-03T00:00:00",
+            "names" : ["wind_speed"]
+        }
+
+    ]
+}

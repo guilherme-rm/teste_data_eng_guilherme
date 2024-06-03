@@ -1,3 +1,4 @@
 # Ignorar arquivos e pastas de compilação do Python
 __pycache__/
 .vscode/
+extra/
