@@ -1,0 +1,8 @@
+sqlalchemy
+sqlalchemy_utils
+fastapi
+numpy
+pandas
+httpx
+uvicorn
+psycopg2-binary

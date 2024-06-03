@@ -1,10 +1,14 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy import Table, Column, Integer, String, DateTime, Float, Text, MetaData
 from sqlalchemy.orm import declarative_base
 
 db = "alvo"
-url = f"postgresql://postgres:password@localhost/{db}"
+postgres_db = os.getenv('POSTGRES_DB')
+user = os.getenv('POSTGRES_USER')
+password = os.getenv('POSTGRES_PASSWORD')
+url = f"postgresql://{user}:{password}@localhost/{db}"
 engine = create_engine(url)
 base = declarative_base()
 

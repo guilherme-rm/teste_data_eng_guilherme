@@ -1,9 +1,12 @@
-# database.py
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL_FONTE = "postgresql://postgres:password@localhost:5432/fonte"
-DATABASE_URL_ALVO = "postgresql://postgres:password@localhost:5432/alvo"
+user = os.getenv('POSTGRES_USER')
+password = os.getenv('POSTGRES_PASSWORD')
+
+DATABASE_URL_FONTE = f"postgresql://{user}:{password}@localhost:5432/fonte"
+DATABASE_URL_ALVO = f"postgresql://{user}:{password}@localhost:5432/alvo"
 
 engine_fonte = create_engine(DATABASE_URL_FONTE)
 engine_alvo = create_engine(DATABASE_URL_ALVO)
