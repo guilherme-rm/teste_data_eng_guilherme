@@ -1,28 +1,27 @@
-# Usar uma imagem base oficial do Python
+# Python image
 FROM python:3.10-slim
 
-# Definir o diretório de trabalho dentro do contêiner
+# Work directory
 WORKDIR /app
 
-# Copiar o arquivo de dependências para o contêiner
 COPY requirements.txt .
 
-# Instalar as dependências
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copiar o código da aplicação para o contêiner
+# Copy app code to container
 COPY . .
 
-# Copiar os scripts de configuração para o contêiner
+# Copy setup scripts to container
 COPY setup/ /setup
 
-# Executar os scripts de configuração
+# Execute setup scripts
 RUN python /setup/create_fonte.py
 RUN python /setup/gen_data_fonte.py
 RUN python /setup/create_alvo.py
 
-# Expor a porta que o servidor vai rodar
+# Expose server port
 EXPOSE 8000
 
-# Comando para rodar a aplicação FastAPI usando Uvicorn
+# commands to run app with uvicorn
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,12 +1,11 @@
-import os
 import psycopg2
 from psycopg2 import sql
-
+import vars
 db_params = {
-    'dbname': os.getenv('POSTGRES_DB'),
-    'user': os.getenv('POSTGRES_USER'),
-    'password': os.getenv('POSTGRES_PASSWORD'),
-    'host': 'localhost',
+    'dbname': 'postgres',
+    'user': vars.user,
+    'password': vars.password,
+    'host': vars.host,
     'port': '5432'
 }
 

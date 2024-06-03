@@ -1,10 +1,10 @@
-import os
 import psycopg2
 from datetime import datetime, timedelta
 import numpy as np
+import vars
+start_date = datetime(2024, 1, 1, 0, 0, 0)
 
-
-def gen_data(start_date=datetime(2024, 1, 1, 0, 0, 0), days=10, min_interval=1):
+def gen_data(start_date=start_date, days=10, min_interval=1):
     data = []
     total = int(24*days*60/min_interval)
 
@@ -21,9 +21,9 @@ def gen_data(start_date=datetime(2024, 1, 1, 0, 0, 0), days=10, min_interval=1):
 
 conn = psycopg2.connect(
     dbname="fonte",
-    user=os.getenv('POSTGRES_USER'),
-    password=os.getenv('POSTGRES_PASSWORD'),
-    host="localhost",
+    user=vars.user,
+    password=vars.password,
+    host=vars.host,
     port="5432"
 )
 
